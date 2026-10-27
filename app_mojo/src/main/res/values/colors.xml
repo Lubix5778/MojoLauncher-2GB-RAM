@@ -12,7 +12,7 @@
     <color name="background_bottom_bar">#232323</color>
     <color name="icon_outline_color">#FFFFFF</color>
 
-    <color name="primary_text">#FFFFFF</color>
-    <color name="secondary_text">#B2B2B2</color>
+    <color name="primary_text">#2B2B2B</color>
+    <color name="secondary_text">#2B2B2B</color>
 
 </resources>
