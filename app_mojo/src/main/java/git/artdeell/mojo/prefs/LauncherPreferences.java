@@ -47,7 +47,7 @@ public class LauncherPreferences {
     public static boolean PREF_VIRTUAL_MOUSE_START = false;
     public static boolean PREF_USE_ALTERNATE_SURFACE = true;
     public static boolean PREF_JAVA_SANDBOX = true;
-    public static float PREF_SCALE_FACTOR = DEFAULT_PREF.getInt("resolutionRatio", 50)/100f;
+    public static float PREF_SCALE_FACTOR = 1f;
 
     public static boolean PREF_ENABLE_GYRO = false;
     public static float PREF_GYRO_SENSITIVITY = 1f;
