@@ -89,3 +89,18 @@ Any code change to this repository should be submitted as a pull request. The de
 - [alsoft](https://github.com/kcat/openal-soft/) (Audio output library): [GNU Library General Public License](https://github.com/kcat/openal-soft/blob/master/COPYING) and [Modified PFFFT](https://github.com/kcat/openal-soft/blob/master/LICENSE-pffft).
 - [oboe](https://github.com/google/oboe): [Apache License 2.0](https://github.com/google/oboe/blob/main/LICENSE).
 - Thanks to [Mineskin](https://mineskin.eu/) for providing Minecraft avatars.
+
+## MojoLauncher-2GB-RAM v1.0
+
+Versión modificada de MojoLauncher pensada para celulares Android de gama baja.
+
+### Cambios
+- Interfaz oscura.
+- Resolución del juego al 50 % por defecto, para ganar FPS en equipos modestos.
+- Contador de FPS propio, que se muestra arriba en el centro mientras juegas.
+
+### Instalación
+Descarga el archivo `.apk` de la sección **Assets**, abajo en esta página, e instálalo. Si ya tienes otra versión instalada, desinstálala primero.
+
+### Créditos
+Modificación de [MojoLauncher](https://github.com/MojoLauncher/MojoLauncher), de artdeell, que está basado en [PojavLauncher](https://github.com/PojavLauncherTeam/PojavLauncher). El código fuente de esta versión está en este repositorio.
