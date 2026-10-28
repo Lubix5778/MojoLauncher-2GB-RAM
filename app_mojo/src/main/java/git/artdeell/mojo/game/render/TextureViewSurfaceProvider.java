@@ -3,11 +3,20 @@ package git.artdeell.mojo.game.render;
 import static git.artdeell.mojo.CallbackBridge.windowHeight;
 import static git.artdeell.mojo.CallbackBridge.windowWidth;
 
+import android.app.Activity;
 import android.content.Context;
+import android.content.ContextWrapper;
+import android.graphics.Color;
 import android.graphics.SurfaceTexture;
+import android.os.Handler;
+import android.os.Looper;
+import android.view.Gravity;
 import android.view.Surface;
 import android.view.TextureView;
 import android.view.View;
+import android.view.ViewGroup;
+import android.widget.FrameLayout;
+import android.widget.TextView;
 
 import androidx.annotation.NonNull;
 
@@ -16,6 +25,7 @@ import git.artdeell.mojo.Tools;
 public class TextureViewSurfaceProvider implements SurfaceProvider {
     private TextureView mTextureView;
     private SurfaceCallback mCallback;
+    private TextView mFpsView;
 
     @Override
     public View create(Context context, SurfaceCallback callback) {
@@ -24,7 +34,51 @@ public class TextureViewSurfaceProvider implements SurfaceProvider {
         mTextureView.setOpaque(true);
         mTextureView.setAlpha(1.0f);
         mTextureView.setSurfaceTextureListener(new CallbackAdapter());
+        addFpsOverlay(context);
         return mTextureView;
+    }
+
+    private void addFpsOverlay(Context context) {
+        if (mFpsView != null) return;
+        Context base = context;
+        while (base instanceof ContextWrapper && !(base instanceof Activity)) {
+            base = ((ContextWrapper) base).getBaseContext();
+        }
+        if (!(base instanceof Activity)) return;
+
+        final TextView fpsView = new TextView(base);
+        fpsView.setTextColor(Color.WHITE);
+        fpsView.setTextSize(12);
+        fpsView.setBackgroundColor(0x88000000);
+        fpsView.setPadding(12, 6, 12, 6);
+        fpsView.setText("FPS: 0");
+        mFpsView = fpsView;
+
+        final Handler handler = new Handler(Looper.getMainLooper());
+        final Runnable updater = new Runnable() {
+            @Override
+            public void run() {
+                fpsView.setText("FPS: " + FpsCounter.getFps());
+                handler.postDelayed(this, 500);
+            }
+        };
+        fpsView.addOnAttachStateChangeListener(new View.OnAttachStateChangeListener() {
+            @Override
+            public void onViewAttachedToWindow(View v) {
+                handler.post(updater);
+            }
+
+            @Override
+            public void onViewDetachedFromWindow(View v) {
+                handler.removeCallbacks(updater);
+            }
+        });
+
+        FrameLayout.LayoutParams params = new FrameLayout.LayoutParams(
+                ViewGroup.LayoutParams.WRAP_CONTENT,
+                ViewGroup.LayoutParams.WRAP_CONTENT);
+        params.gravity = Gravity.TOP | Gravity.END;
+        ((Activity) base).addContentView(fpsView, params);
     }
 
     @Override
@@ -58,7 +112,7 @@ public class TextureViewSurfaceProvider implements SurfaceProvider {
 
         @Override
         public void onSurfaceTextureUpdated(@NonNull SurfaceTexture surfaceTexture) {
-
+            FpsCounter.onFrame();
         }
     }
-}
+            }
