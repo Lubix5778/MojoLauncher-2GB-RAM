@@ -92,6 +92,9 @@ Any code change to this repository should be submitted as a pull request. The de
 
 ## MojoLauncher-2GB-RAM v1.0
 
+### Créditos
+Versión modificada por Lubix5778. Basada en [MojoLauncher](https://github.com/MojoLauncher/MojoLauncher), de artdeell, que está basado en [PojavLauncher](https://github.com/PojavLauncherTeam/PojavLauncher). El código fuente de esta versión está en este repositorio.
+
 Versión modificada de MojoLauncher pensada para celulares Android de gama baja.
 
 ### Cambios
