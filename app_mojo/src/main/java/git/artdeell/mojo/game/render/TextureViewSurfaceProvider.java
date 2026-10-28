@@ -77,7 +77,7 @@ public class TextureViewSurfaceProvider implements SurfaceProvider {
         FrameLayout.LayoutParams params = new FrameLayout.LayoutParams(
                 ViewGroup.LayoutParams.WRAP_CONTENT,
                 ViewGroup.LayoutParams.WRAP_CONTENT);
-        params.gravity = Gravity.TOP | Gravity.END;
+        params.gravity = Gravity.TOP | Gravity.CENTER_HORIZONTAL;
         ((Activity) base).addContentView(fpsView, params);
     }
 
