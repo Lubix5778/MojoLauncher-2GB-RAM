@@ -80,7 +80,17 @@ public class TextureViewSurfaceProvider implements SurfaceProvider {
         FrameLayout.LayoutParams params = new FrameLayout.LayoutParams(
                 ViewGroup.LayoutParams.WRAP_CONTENT,
                 ViewGroup.LayoutParams.WRAP_CONTENT);
-        params.gravity = Gravity.TOP | Gravity.CENTER_HORIZONTAL;
+        String corner = "top_center";
+if (LauncherPreferences.DEFAULT_PREF != null) {
+    corner = LauncherPreferences.DEFAULT_PREF.getString("fpsCorner", "top_center");
+}
+if ("top_left".equals(corner)) {
+    params.gravity = Gravity.TOP | Gravity.START;
+} else if ("top_right".equals(corner)) {
+    params.gravity = Gravity.TOP | Gravity.END;
+} else {
+    params.gravity = Gravity.TOP | Gravity.CENTER_HORIZONTAL;
+}
         ((Activity) base).addContentView(fpsView, params);
     }
 
