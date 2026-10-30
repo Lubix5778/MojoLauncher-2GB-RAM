@@ -50,6 +50,11 @@
             android:key="force_vsync"
             android:summary="@string/preference_force_vsync_description"
             android:title="@string/preference_force_vsync_title"
+            />        <androidx.preference.SwitchPreferenceCompat
+            android:defaultValue="false"
+            android:key="hideFps"
+            android:summary="Oculta el contador de FPS mientras juegas. Se aplica al abrir el juego."
+            android:title="Desactivar contador de FPS"
             />
         <androidx.preference.SwitchPreferenceCompat
             android:defaultValue="false"
