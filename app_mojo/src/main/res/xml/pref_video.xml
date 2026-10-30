@@ -55,7 +55,13 @@
             android:key="hideFps"
             android:summary="Oculta el contador de FPS mientras juegas. Se aplica al abrir el juego."
             android:title="Desactivar contador de FPS"
-            />
+            />        <androidx.preference.ListPreference
+            android:defaultValue="top_center"
+            android:entries="@array/fps_corner_entries"
+            android:entryValues="@array/fps_corner_values"
+            android:key="fpsCorner"
+            android:title="Posición del contador de FPS"
+            app2:useSimpleSummaryProvider="true"/>
         <androidx.preference.SwitchPreferenceCompat
             android:defaultValue="false"
             android:key="use_angle"
