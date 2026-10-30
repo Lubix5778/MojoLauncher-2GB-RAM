@@ -69,7 +69,7 @@ public class LauncherPreferences {
     public static String PREF_DOWNLOAD_SOURCE = "default";
     public static boolean PREF_SKIP_NOTIFICATION_PERMISSION_CHECK = false;
     public static boolean PREF_RAPID_START = true;
-    public static boolean PREF_VERIFY_FILES = true;
+    public static boolean PREF_VERIFY_FILES = false;
 
     public static boolean PREF_FREEDRENO_SYSMEM = false;
     public static boolean PREF_KEYBOARD_AUTOPANNING = true;
