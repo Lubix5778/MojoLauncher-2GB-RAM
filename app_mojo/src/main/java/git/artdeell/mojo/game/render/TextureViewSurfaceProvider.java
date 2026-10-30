@@ -54,14 +54,14 @@ public class TextureViewSurfaceProvider implements SurfaceProvider {
         fpsView.setTextSize(12);
         fpsView.setBackgroundColor(0x88000000);
         fpsView.setPadding(12, 6, 12, 6);
-        fpsView.setText("FPS: 0");
+        fpsView.setText("Pantalla: 0");
         mFpsView = fpsView;
 
         final Handler handler = new Handler(Looper.getMainLooper());
         final Runnable updater = new Runnable() {
             @Override
             public void run() {
-                fpsView.setText("FPS: " + FpsCounter.getFps());
+                fpsView.setText("Pantalla: " + FpsCounter.getFps());
                 handler.postDelayed(this, 500);
             }
         };
