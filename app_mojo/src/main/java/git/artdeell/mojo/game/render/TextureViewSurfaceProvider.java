@@ -21,6 +21,7 @@ import android.widget.TextView;
 import androidx.annotation.NonNull;
 
 import git.artdeell.mojo.Tools;
+import git.artdeell.mojo.prefs.LauncherPreferences;
 
 public class TextureViewSurfaceProvider implements SurfaceProvider {
     private TextureView mTextureView;
@@ -40,6 +41,8 @@ public class TextureViewSurfaceProvider implements SurfaceProvider {
 
     private void addFpsOverlay(Context context) {
         if (mFpsView != null) return;
+        if (LauncherPreferences.DEFAULT_PREF != null
+        && LauncherPreferences.DEFAULT_PREF.getBoolean("hideFps", false)) return;
         Context base = context;
         while (base instanceof ContextWrapper && !(base instanceof Activity)) {
             base = ((ContextWrapper) base).getBaseContext();
